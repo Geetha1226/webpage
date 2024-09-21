@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Product Display</title>
+   
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        .header-container {
+            display:flex;
+            justify-content: space-between;
+            margin:15px 15px;
+        }
+        .logo h1 {
+            display: inline-block;
+            font-size: 24px;
+            color: #fff;
+        }
+        nav ul {
+            display:flex;
+            justify-content:flex-end;
+            margin-left:20px;
+            gap:20px;
+        }
+        nav ul li {
+            display: flex;
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            padding:20px 0;
+              
+        }
+        .product-details {
+            display: flex;
+            justify-content:space-between;
+            background-color: #1e1e1e;
+           
+          
+            margin-bottom:50px;
+            
+        }
+        .images {
+            display:flex;
+            flex: 1;
+            padding: 20px;
+        }
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            height:550px;
+            width:550px;
+            margin-left: 40px;
+        }
+        .thumbnail {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            margin-bottom: 40px;
+            border: 2px solid #333;
+            border-radius: 5px;  
+        }
+        .thumbnail:hover {
+            border: 2px solid #fff;
+        }
+        .details {
+            color: #aaa;
+            margin:30px 0;
+            margin-right:30px;
+
+        }
+        .details h1{
+            font-size:28px;
+            margin-bottom:10px;
+        }
+        .details p{
+            font-size:15px;
+            margin-bottom:15px;
+        }
+        .ratings {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            
+        }
+        .ratings i {
+            color: #ff4b47;
+            margin-right: 5px;
+        }
+        
+        .ratings span {
+            font-size: 14px;
+            margin-left: 10px;
+        } 
+        .nav-pricing{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #555;
+            margin-top:30px;
+            margin-bottom:30px;
+            padding-top:20px;
+
+        }
+        .pricing{
+            font-size:20px;
+            
+            margin: 0;
+
+        }
+       
+        .discount-price{
+            font-size: 30px;
+            font-weight: bold;
+            color: #aaa;
+
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 20px;
+           
+        }
+        .save {
+            color: #52c41a;
+            margin-top:5px;
+        }
+        .stock {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            
+        }
+        .offers {
+            margin-top:30px;
+            padding-top:30px;
+            margin-bottom: 30px;
+            text-align: left;
+            border-top: 1px solid #555;
+        }
+        .offers h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #d1d1d1;
+            margin-bottom: 15px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px; 
+        }
+        button.offer {
+            background-color: transparent;
+            color: #d1d1d1;
+            border: 1px solid #555;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 200px; 
+            text-align: center;
+           
+        }
+        .add-to-cart{
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+        }
+        .add-to-cart button{
+            background-color:red;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 200px;
+        }
+        .nav-specification {
+            margin: 50px 0px;
+        }
+
+
+        .headings {
+            display: flex;
+            justify-content: center;
+            gap:20px;
+        
+            
+        }
+        .headings h4 {
+            font-size: 18px;
+            color: #d1d1d1;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .headings .active {
+            background-color:red;
+            color: white;
+            border-radius: 5px;
+        }
+        .specifications {
+            display:flex;
+            margin-top: 20px;
+        }
+        .specifications-details,.specifications-names{
+            list-style: none;
+            
+            padding:0;
+            margin:0;
+           
+        }
+        .specifications-details {
+            width: 200px; 
+            margin-right: 60px;
+        }
+        
+
+        .specifications-details li, .specifications-names li {
+            margin-bottom: 20px;
+        }
+        .specifications-details h4 {
+            font-weight: normal; 
+            color: #d1d1d1;
+        }
+        .specifications-names strong {
+            color: #fff; 
+            font-weight: bold;
+        }
+        .related-products {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .related-products h2 {
+            font-size: 24px;
+            margin-bottom: 90px;
+            margin-top: 80px;
+            color: #fff;
+        }
+        .product-container{
+            display: flex;
+            flex-wrap: wrap;
+    
+            justify-content:center;
+            gap:10px;
+            margin:auto;
+            
+        }
+        .product-card{
+            width:300px;
+            border:1px solid #555;
+            padding:8px;
+            border-radius: 5px;
+        }
+        .product-card .product-image{
+            width:100%;
+            height:200px;
+            object-fit:fill;
+            border-radius: 8px;
+        }
+        .product-card h3{
+            text-align: start;
+            margin-bottom:10px;
+        }
+        .product-card p{
+            text-align: start;
+            margin-bottom: 10px;
+
+        }
+        .rating {
+            display: flex;
+            justify-content:flex-start;
+            margin: 10px 0;
+        }
+        .rating i {
+            color:red;
+            margin-right: 5px;
+        }
+        .pricing-box {
+            border-top: 1px solid #555;
+            font-size: 18px;
+            display: flex;
+            justify-content:flex-start;
+            margin-top:30px;
+            padding:20px 0;
+           
+
+        }
+        .offer-price {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .actual-price {
+            color: #777;
+            text-decoration: line-through;
+        }
+        .cart {
+            background-color:red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .advantages {
+            margin:100px 0;
+            
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .advantages h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            margin:80px 0;
+        }
+
+        .advantages-container {
+            margin:40px 30px;
+            
+            
+            
+            display: flex;
+
+            justify-content:space-between;
+           
+        }
+
+        .advantage {
+            display: flex;
+            align-items: center; 
+            gap: 15px; 
+            text-align: left;
+         
+        }
+
+        .advantage i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color:red;
+        }
+        .advantage-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .advantage-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .advantage-desc {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b0b0b0;
+            
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            
+            border-bottom:1px solid #555;
+            margin:50px 0;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-right: 20px;
+            margin-bottom:15px;
+        }
+        .footer-column button{
+            margin-top:10px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .footer-column p{
+            margin-bottom:15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .subscribe {
+            margin-bottom: 20px;
+        }
+
+        .subscribe input {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .subscribe button {
+            padding: 10px 20px;
+            background-color:red;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .footer-bottom-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top:40px;
+        }
+
+       
+        .footer-bottom {
+            
+            text-align:start;
+            
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content:flex-end;
+            margin-top: 40px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+      
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><h1>Tech-Shop</h1></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="signup.html"><i class="fa-solid fa-user"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div class="container">
+    <div class="product-details">
+        <div class="images">
+            <div>
+                <img src="jbl.png" alt="Thumbnail 1" class="thumbnail">
+                <img src="jbl660nc-2.png" alt="Thumbnail 2" class="thumbnail">
+                <img src="jbl660nc-3.png" alt="Thumbnail 3" class="thumbnail">
+                <img src="jbl660nc-4.png" alt="Thumbnail 4" class="thumbnail">
+            </div>
+            <img src="jbl.png" alt="JBL Live 660NC" class="main-image">
+            </div>
+            <div class="details">
+                <h1>JBL Live 660NC</h1>
+                <p>Wireless Over-Ear NC Headphones</p>
+                <div class="ratings">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <h4>|</h4><span>1234 Ratings</span>
+                </div>
+                <div class="nav-pricing">
+                    <div class="pricing">
+                        <p class="price"><span class="discount-price">₹9,999</span> <span class="original-price">₹14,999</span></p>
+                        <p class="save">You save: ₹5,000 (33%)</p>
+                        <p>(Inclusive of all taxes)</p>
+            
+                    </div>
+                    <button class="stock">✔ In Stock</button>
+                </div>
+                <div class="offers">
+                    <h3>Offers and Discounts</h3>
+                    <div class="buttons">
+                        <button class="offer">No Cost EMI on Credit Card</button>
+                        <button class="offer">Pay Later & Avail Cashback</button>
+        
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+   
+        <div class="nav-specification"></div>
+            <div class="headings">
+                <h4>Specifications</h4>
+                <h4>Overview</h4>
+                <h4>Reviews</h4>
+
+            </div>
+            <div class="specifications">
+                <ul class="specifications-details">
+                    <li><h4>Brand</h4></li>
+                    <li><h4>Model</h4></li>
+                    <li><h4>Generic Name</h4></li>
+                    <li><h4>Headphone Type<h4></li>
+                    <li><h4>Connectivity</h4></li>
+                    <li><h4>Microphone</h4></li>
+                </ul>
+                <ul class="specifications-names">
+                    <li><strong>JBL</strong></li>
+                    <li><strong>JBL Live 660NC</strong></li>
+                    <li><strong>Headphones</strong></li>
+                    <li><strong>Over Ear</strong></li> 
+                    <li><strong>Wireless</strong></li>
+                    <li><strong>Yes</strong></li>
+                </ul>
+            </div>
+           
+        </div>
+        <div class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-container">
+                <div class="product-card">
+                    <img src="jbl.png" alt="JBL Live 660NC" class="product-image">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3>JBL Live 660NC</h3>
+                    <p>Wireless Over-Ear NC <br>Headphones</p>
+                   
+                    <pre class="pricing-box"><strong class="offer-price">₹9,999</strong> <strike class="actual-price">₹14,999</strike></pre>
+                    <button class="cart">Add to cart</button>
+                    
+                </div>
+                <div class="product-card">
+                    <img src="boat518-1.png" alt="boAt Rockerz 518" class="product-image">
+
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <h3>boAt Rockerz 518</h3>
+                    <p>On-Ear Wireless Headphones</p>
+                    <pre class="pricing-box"><strong class="offer-price">₹1,299</strong> <strike class="actual-price">₹3,990</strike></pre>
+                    <button class="cart">Add to cart</button>
+                    
+                </div>
+                <div class="product-card">
+                    <img src="boat410-1.png" alt="boAt Rockerz 410" class="product-image">
+                     <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <h3>boAt Rockerz 410</h3>
+                    <p>Bluetooth & Wired On-Ear<br>Headphones</p>
+                    <pre class="pricing-box"><strong class="offer-price">₹1,599</strong> <strike class="actual-price">₹2,990</strike></pre>
+                    <button class="cart">Add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="sonyXb910n-1.png" alt="Sony WH-XB910N" class="product-image">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <h3>Sony WH-XB910N</h3>
+                    <p>Wireless Over-Ear<br>Headphones</p>
+                    <pre class="pricing-box"><strong class="offer-price">₹13,489</strong> <strike class="actual-price">19,990</strike></pre>
+                    <button class="cart">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="advantages">
+            <h2>Our Advantages</h2>
+            <div class="advantages-container">
+                <div class="advantage">
+                    <i class="fa-solid fa-truck"></i>
+                    <div class="advantage-text">
+                        <p class="advantage-title">Express Delivery</p>
+                        <p class="advantage-desc">Ships in 24 Hours</p>
+                    </div>  
+                </div>
+                <div class="advantage">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div class="advantage-text">
+                        <p class="advantage-title">Brand Warranty</p>
+                        <p class="advantage-desc">100% Original products</p>
+                    </div>
+                   
+                </div>
+                <div class="advantage">
+                    <i class="fa-solid fa-tags"></i>
+                    <div class="advantage-text">
+                        <p class="advantage-title">Exciting Deals</p>
+                        <p class="advantage-desc">On all prepaid orders</p>
+
+                    </div>
+                   
+                </div>
+                <div class="advantage">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <div class="advantage-text">
+                        <p class="advantage-title">Secure Payments</p>
+                        <p class="advantage-desc">SSL / Secure certificate</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Tech-Shop</h3>
+                    <p>Subscribe to our Email alerts to receive early discount offers, and new products info.</p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Email Address*">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Cancel Order</a></li>
+                        <li><a href="#">Return Order</a></li>
+                        <li><a href="#">Warranty Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Service Centres</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-container">
+                <div class="footer-bottom">
+                    2024 | All Rights Reserved. Built by | <a href="#">GEETHA.M</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </footer>
+        
+    
+   
+    </div>
+
+    
+    
+
+
+</body>
+</html>
+    

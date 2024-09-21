@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>signup</title>
+    <style>
+
+    html, body {
+    height: 100%;
+    margin: 0;
+  
+    font-family: poppins, sans-serif;
+    background-color: black;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+       
+    }
+header{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top:0;
+    background-color: black;
+    padding: 15px;
+    z-index:100;
+
+}
+.header-container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 15px;
+} 
+.logo h1 {
+    font-size: 24px;
+    color: #fff;
+}
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+nav ul li {
+  
+    margin-left: 20px;
+}
+nav ul li a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+.signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1; 
+        padding-top:70px;
+    }
+
+    .signup-box {
+        background-color: #222;
+        padding: 40px;
+        text-align: center;
+    }
+
+h2, p{
+    color: white;
+    text-align: start;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+input{
+    height:30px;
+    width:300px;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+}
+.btn{
+    background-color: red;
+    color:white;
+    height:30px;
+    width:312px;
+    border-radius: 5px;
+}
+.login-with{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin:20px 0;
+
+}
+.login-with::after,
+.login-with::before{
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #666; 
+    margin: 0 10px;
+ 
+}
+.social-login{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+ 
+}
+.social-login .facebook{
+    display: flex;
+    justify-content: flex-start;
+    background-color: blue;
+    height:30px;
+    width:100px;
+    margin-right:10px;
+}
+.social-login .google{
+    background-color: red;
+    height:30px;
+    width: 100px;
+    margin-right:10px;
+
+}
+.social-login .twitter{
+    background-color:skyblue;
+    height:30px;
+    width: 100px;
+}
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="header-container">
+                    <div class="logo">
+                        <a href="index.html"><h1>Tech-Shop</h1></a>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                            <li><a href="signup.html"><i class="fa-solid fa-user"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+        </div>
+        <div class="signup-container">
+            <div class="signup-box">
+                <h2>Signup</h2>
+                <p>Already have an account ? <a href="#">Login</a></p>
+                <form action="#">
+                    <input type="text" id="username"placeholder="UserName"><br><br>
+                    <input type="text" id="Email"placeholder="Email"><br><br>
+                    <input type="text" id="Password"placeholder="Password"><br><br>
+                    <input type="text" id="Confirm Password"placeholder="Confirm Password"><br><br>
+                    <button class="btn">Signup</button>
+                    
+                </form>
+                <p class="login-with"><span>or login with</span></p>
+                <div class="social-login">
+                    <button class="facebook">Facebook</button>
+                    <button class="google">Google</button>
+                    <button class="twitter">Twitter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

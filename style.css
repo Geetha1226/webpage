@@ -1,0 +1,542 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0f0f;
+    color: #fff;
+    margin:10px 15px;
+}
+.header-container {
+    display:flex;
+    justify-content: space-between;
+    margin:15px 15px;
+   
+}
+
+.logo h1 {
+    display: inline-block;
+    font-size: 24px;
+    color: #fff;
+}
+nav ul {
+    display:flex;
+    justify-content:flex-end;
+    margin-left:20px;
+    gap:20px;
+    
+}
+
+nav ul li {
+    display: flex;
+    margin-left: 20px;
+}
+nav ul li a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+.user-menu {
+    position: relative; /* To ensure the dropdown is positioned relative to the user menu */
+    display: inline-block;
+}
+.user-menu a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #111;
+    padding: 15px;
+    width: 200px;
+    border: 1px solid #333;
+    z-index: 10;
+    color: #ccc;
+    border-radius: 5px;
+}
+
+
+/* Hover effect to show the dropdown */
+.user-menu:hover .user-dropdown,.user-menu:focus-within .user-dropdown{
+    display: block;
+}
+
+/* Dropdown content */
+.user-dropdown h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.user-dropdown p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.user-dropdown hr {
+    margin: 10px 0;
+    border: 0.5px solid #444;
+}
+
+
+/* Login/Signup button */
+.login-signup-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+.login-signup-btn:hover {
+    background-color: #333;
+}
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 50px;
+    background-color: #111;
+    position: relative;
+    gap:30px;
+}
+
+.banner .container {
+    z-index: 2;
+    max-width: 600px;
+}
+
+.banner h2 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.banner .price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.banner .price span {
+    font-size: 20px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.banner .btn-shop {
+    background-color: #e30613;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+    
+
+
+.banner .banner-image {
+    z-index: 2;
+}
+
+.banner .banner-image img {
+    width: 400px;
+    max-width: 100%;
+}
+
+.featured-title {
+    text-align: center;
+    font-size: 24px;
+    color: #e0e0e0;
+    margin: 70px 0;
+}
+
+.featured-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 70px;
+    padding: 20px;
+    margin:100px 0;
+}
+
+.products {
+    background-color: transparent;
+    border: none !important; 
+    box-shadow: none !important; 
+    text-align: center;
+}
+
+.products img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Product title */
+.products h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Pricing */
+.products p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.products p span {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+/* Size classes */
+.products.small {
+    width: 110px;
+}
+
+.products.medium {
+    width: 150px;
+}
+
+.products.larger {
+    width: 230px;
+}
+
+
+/* Title styling */
+.top-products h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin:50px 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Container styling */
+.top-products .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title styling */
+.top-products h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #dcdcdc;
+}
+
+/* Product categories styling */
+.product-categories {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin:60px 0;
+}
+
+.product-categories li {
+    margin: 0 10px;
+}
+
+.product-categories a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.product-categories a.active {
+    background-color: #e30613;
+    color: #fff;
+}
+
+.products-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    width: 280px;
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    
+}
+.product a{
+    text-decoration: none;
+}
+
+
+.product img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #dcdcdc;
+   
+}
+
+.product p {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom:20px;
+    
+}
+
+.product .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+  
+}
+
+.product .price del {
+    font-size: 14px;
+    color: #888;
+    margin-left: 10px;
+}
+
+.product button {
+    background-color: #e30613;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: start;
+}
+.product-details{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+
+}
+.browse-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.browse-all h4{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
+
+.ratings {
+    display: flex;
+    justify-content:flex-start;
+    margin: 5px 0;
+}
+.ratings i {
+    color:red;
+    margin-right: 5px;
+}
+ 
+.advantages {
+    margin:100px 0;
+    
+    text-align: center;
+    padding: 40px 0;
+}
+
+.advantages h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #b0b0b0;
+    margin:80px 0;
+}
+
+.advantages-container {
+    margin:40px 30px;
+    
+    
+    
+    display: flex;
+
+    justify-content:space-between;
+   
+}
+
+.advantage {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    text-align: left;
+ 
+}
+
+.advantage i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color:red;
+}
+.advantage-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.advantage-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.advantage-desc {
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+footer {
+    background-color: #000;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #b0b0b0;
+    
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    border-bottom:1px solid #555;
+    margin:50px 0;
+}
+
+.footer-column {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom:15px;
+}
+.footer-column button{
+    margin-top:10px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.footer-column p{
+    margin-bottom:15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+}
+
+.subscribe {
+    margin-bottom: 20px;
+}
+
+.subscribe input {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.subscribe button {
+    padding: 10px 20px;
+    background-color:red;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top:40px;
+}
+
+
+.footer-bottom {
+    
+    text-align:start;
+    
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 40px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
